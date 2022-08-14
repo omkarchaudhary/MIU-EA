@@ -1,0 +1,2 @@
+If we have event callback method outside of the Entity, We can utilize the existing method
+of the listeners for other Entity. It provides the separation of concern.

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="applicationContext_part1.xml" />
+    <import resource="applicationContext_part2.xml" />
+<!--    <bean id="car" class="com.miu.ea.spring.Car"></bean>-->
+<!--    <bean id ="bike" class="com.miu.ea.spring.Bike"></bean>-->
+<!--    <bean id="game" class="com.miu.ea.spring.Game">-->
+<!--        <constructor-arg ref="bike" />-->
+<!--    </bean>-->
+</beans>

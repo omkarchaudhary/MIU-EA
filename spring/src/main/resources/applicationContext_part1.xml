@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--    <bean id="car" class="com.miu.ea.spring.Car">-->
+<!--        <constructor-arg value="TestCar_Name"></constructor-arg>-->
+<!--    </bean>-->
+<!--    <bean id="bike"  class="com.miu.ea.spring.Bike"></bean>-->
+
+<!--    <bean id="game" name="game1" class="com.miu.ea.spring.Game">-->
+<!--        <constructor-arg ref="car" />-->
+<!--        <property name="brand" value="Tesla" />-->
+<!--    </bean>-->
+</beans>

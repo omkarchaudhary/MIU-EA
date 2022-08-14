@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="dateService" class="com.miu.ea.cs544.programmingtest2.service.DateService"></bean>
+    <bean id="dbLogger" class="com.miu.ea.cs544.programmingtest2.service.DbLogger"></bean>
+    <bean id="emailSystem" class="com.miu.ea.cs544.programmingtest2.service.EmailSystem"></bean>
+    <bean id="fileLogger" class="com.miu.ea.cs544.programmingtest2.service.FileLogger"></bean>
+    <bean id="loggingAspect" class="com.miu.ea.cs544.programmingtest2.aspect.LoggingAspect"></bean>
+    <bean id="transactionAspect" class="com.miu.ea.cs544.programmingtest2.aspect.TransactionAspect"></bean>
+<!--    <bean id="msSqlManager" class="com.miu.ea.cs544.programmingtest2.service.MsSqlManager"></bean>-->
+<!--    <bean id="mySqlManager" class="com.miu.ea.cs544.programmingtest2.service.MySqlManager"></bean>-->
+<!--    <bean id="studentCrud" class="com.miu.ea.cs544.programmingtest2.service.StudentCRUD">-->
+<!--        <constructor-arg ref="mySqlManager" />-->
+<!--    </bean>-->
+
+    <beans profile="dev, default">
+        <bean id="fileLogger" class="com.miu.ea.cs544.programmingtest2.service.FileLogger"></bean>
+        <bean id="mySqlManager" class="com.miu.ea.cs544.programmingtest2.service.MySqlManager"></bean>
+        <bean id="studentCrud" class="com.miu.ea.cs544.programmingtest2.service.StudentCRUD">
+            <constructor-arg ref="mySqlManager"/>
+        </bean>
+    </beans>
+    <beans profile="prod">
+        <bean id="dbLogger" class="com.miu.ea.cs544.programmingtest2.service.DbLogger"></bean>
+        <bean id="msSqlManager" class="com.miu.ea.cs544.programmingtest2.service.MsSqlManager"></bean>
+        <bean id="studentCrud" class="com.miu.ea.cs544.programmingtest2.service.StudentCRUD">
+            <constructor-arg ref="msSqlManager"/>
+        </bean>
+    </beans>
+
+
+
+</beans>

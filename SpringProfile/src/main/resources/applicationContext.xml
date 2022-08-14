@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <beans profile="dev,default">
+        <bean id = "databaseService" class="com.miu.ea.springprofile.DatabaseService">
+            <property name="url" value="Development"/>
+        </bean>
+        <bean id = "student" class="com.miu.ea.springprofile.Student">
+            <constructor-arg name="databaseService" ref="databaseService"/>
+            <property name="name" value="Omkar"/>
+        </bean>
+        <bean id="emailService" class="com.miu.ea.springprofile.EmailService"/>
+        <bean id="studentAdvice" class="com.miu.ea.springprofile.StudentAdvice"/>
+        <bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+            <property name="target" ref="student"/>
+            <property name="interceptorNames">
+                <list>
+                    <value>studentAdvice</value>
+                </list>
+            </property>
+        </bean>
+    </beans>
+
+
+    <beans profile="prod">
+        <bean id = "databaseService" class="com.miu.ea.springprofile.DatabaseService">
+            <property name="url" value="Production"/>
+        </bean>
+        <bean id = "student" class="com.miu.ea.springprofile.Student">
+            <constructor-arg name="databaseService" ref="databaseService"/>
+            <property name="name" value="Omkar"/>
+        </bean>
+    </beans>
+
+</beans>

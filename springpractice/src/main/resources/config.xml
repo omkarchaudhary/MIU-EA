@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+    <beans profile="development,default">
+        <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+        <bean id="emailSystem" class="edu.miu.ea.springpractice.service.EmailSystem">
+            <constructor-arg ref="dateService"></constructor-arg>
+        </bean>
+        <bean id="logger" class="edu.miu.ea.springpractice.service.FileLogger">
+        </bean>
+        <bean id="dateService" class="edu.miu.ea.springpractice.service.DateService"></bean>
+        <bean id="dbManager" class="edu.miu.ea.springpractice.service.MySqlManager"></bean>
+        <bean id="studentCRUD" class="edu.miu.ea.springpractice.service.StudentCRUD">
+            <constructor-arg ref="dbManager"></constructor-arg>
+        </bean>
+        <bean id="aspectJLogging" class="edu.miu.ea.springpractice.aspect.AspectJLogging">
+            <constructor-arg ref="logger"></constructor-arg>
+        </bean>
+
+    </beans>
+    <beans profile="production">
+        <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+        <bean id="dbManager" class="edu.miu.ea.springpractice.service.MsSqlManager"></bean>
+                <bean id="logger" class="edu.miu.ea.springpractice.service.DbLogger"></bean>
+    </beans>
+
+</beans>

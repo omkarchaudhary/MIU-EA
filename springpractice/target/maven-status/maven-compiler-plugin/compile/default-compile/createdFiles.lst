@@ -1,0 +1,12 @@
+edu/miu/cs544/programmingtest2/service/FileLogger.class
+edu/miu/cs544/programmingtest2/service/MsSqlManager.class
+edu/miu/cs544/programmingtest2/Main.class
+edu/miu/cs544/programmingtest2/service/Logger.class
+edu/miu/cs544/programmingtest2/service/DateService.class
+edu/miu/cs544/programmingtest2/service/MySqlManager.class
+edu/miu/cs544/programmingtest2/aspect/AspectJLogging.class
+edu/miu/cs544/programmingtest2/config/SpringConfig.class
+edu/miu/cs544/programmingtest2/service/StudentCRUD.class
+edu/miu/cs544/programmingtest2/service/DbLogger.class
+edu/miu/cs544/programmingtest2/service/EmailSystem.class
+edu/miu/cs544/programmingtest2/service/DBManager.class

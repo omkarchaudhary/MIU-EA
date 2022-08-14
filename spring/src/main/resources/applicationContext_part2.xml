@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    <import resource="applicationContext_part1.xml" />
+    <bean id = "car1" class="com.miu.ea.spring.Car" destroy-method="destroy"></bean>
+    <bean id = "car" class="com.miu.ea.spring.Car" destroy-method="destroy"></bean>
+<!--    <bean id = "myBeanPostProcessor" class="com.miu.ea.spring.MyBeanPostProcessor"></bean>-->
+    <!--    Scope type is singleton by default-->
+    <bean id = "bike" class="com.miu.ea.spring.Bike" scope="prototype"></bean>
+    <bean id="game" class="com.miu.ea.spring.Game" scope="singleton">
+        <lookup-method name="getVehicle" bean="bike" />
+        <property name="brand" value="Tesla" />
+        <constructor-arg ref="bike" />
+    </bean>
+<!--    <bean id="game1" class="com.miu.ea.spring.Game" init-method="initMethod">-->
+<!--        <constructor-arg ref="car" />-->
+<!--        <property name="brand" value="Toyata" />-->
+<!--    </bean>-->
+
+
+<!--    <context:annotation-config></context:annotation-config>-->
+</beans>
